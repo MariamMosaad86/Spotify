@@ -7,14 +7,15 @@ import org.openqa.selenium.By;
 public class SearchPage {
     private Driver driver;
 
-//    By addToPlayList = By.xpath("(//div[@class=\"lQEXaOyKiOHRJAkTf1EF\"])[1]");
+    //    By addToPlayList = By.xpath("(//div[@class=\"lQEXaOyKiOHRJAkTf1EF\"])[1]");
     By addNewPlayList = By.xpath("(//button[@)[role=\"menuitem\"]2]");
-    By selectThreeDots = By.xpath("(//button[@aria-haspopup=\"menu\"])[2]");
-    By playASong= By.xpath("(//div/li[@role=\"listitem\"])[2]");
+    By selectThreeDots = By.xpath("(//button[@data-testid=\"more-button\"])[3]");
+    By playASong = By.xpath("(//div/li[@role=\"listitem\"])[2]");
     By addToLikeButton = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[26]");
-    By addToPlayList = By.xpath("(//ul/li[@role=\"presentation\"])[1]");
-    By addToMyPlayList =By.xpath("(//button/span[@data-encore-id=\"type\"])[2]");
-    By selectASong= By.xpath("//a[@href=\"/track/6TYFcqqQVQPb3YsgfRhvqs\"]");
+    By addToPlayList = By.xpath("(//li[@role=\"presentation\"])[1]");
+    By addToMyPlayList = By.xpath("(//button[@role=\"menuitem\"])[3]");
+    By selectASong = By.xpath("//a[@href=\"/track/6TYFcqqQVQPb3YsgfRhvqs\"]");
+    By searchButton = By.xpath("//div[@class=\"IconContainer-sc-1oa4n9m-0 dXCfis\"]");
 
 
     public SearchPage(Driver driver) {
@@ -32,23 +33,37 @@ public class SearchPage {
 
 
     @Step("Play a PlayList")
-    public SearchPage playPlayListSong(){
+    public SearchPage playPlayListSong() {
         driver.element().click(playASong);
         return this;
     }
 
     @Step("Add song to likeList")
-    public SearchPage addSongToLikeList(){
+    public SearchPage addSongToLikeList() {
         driver.browser().scrollToBottom();
         driver.element().click(addToLikeButton);
         return this;
     }
 
     @Step("Click on Three dots")
-    public SearchPage clickOnThreeDots(){
+    public SearchPage clickOnThreeDots() {
         driver.element().click(selectThreeDots);
-        driver.element().hoverOnItem(addToPlayList);
+        return this;
+    }
+
+    @Step("Click on addToPlayList")
+    public SearchPage clickOnAddToPlayList() {
+        driver.element().click(addToPlayList);
+        return this;
+    }
+    @Step("Click on Add To MyPlaylist")
+public SearchPage clickOnAddToMyPlayList(){
         driver.element().click(addToMyPlayList);
+        return this;
+    }
+    @Step("Click on Search Button")
+    public SearchPage clickOnSearchButton() {
+        driver.element().click(searchButton);
         return this;
     }
 }

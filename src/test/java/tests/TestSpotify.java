@@ -2,13 +2,12 @@ package tests;
 
 import driverFactory.Driver;
 
-import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-public class SignupOnSpotify {
+public class TestSpotify {
     public Driver driver;
 
 
@@ -48,10 +47,14 @@ public class SignupOnSpotify {
 
     @Test(priority = 3, dependsOnMethods = "login")
     public void createPlayList() {
-        new HomePage(driver)
-                .clickOnCreatePlayList()
-                .searchForSinger()
-                .clickOnThreeDots();
+            new HomePage(driver)
+                    .clickOnPlusButton()
+                    .clickOnPlayList()
+                    .searchForSinger()
+                    .clickOnSearchButton()
+                    .clickOnThreeDots()
+                    .clickOnAddToPlayList()
+                    .clickOnAddToMyPlayList();
     }
 
 

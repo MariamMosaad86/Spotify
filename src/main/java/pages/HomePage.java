@@ -19,6 +19,9 @@ public class HomePage {
     By expandLibrary = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[6]");
     By expandTitle = By.xpath("//button[@aria-label=\"Expand Your Library\"]");
     By createNewPlayList = By.xpath("(//button[@class=\"mWj8N7D_OlsbDgtQx5GW\"])[1]");
+    By plusButton = By.xpath("//button[@aria-label=\"Create\"]");
+    By playList = By.xpath("(//div[@class=\"Areas__HeaderSideArea-sc-8gfrea-1 ljvfQS\"])[3]");
+
 
 
     public HomePage(Driver driver) {
@@ -74,6 +77,13 @@ public class HomePage {
         return new LoginPage(driver);
     }
 
+    @Step("Click on plus Button")
+    public HomePage clickOnPlusButton(){
+            driver.element().click(plusButton);
+            return this;
+        }
+
+
     @Step("Click on Create PlayList")
     public HomePage clickOnCreatePlayList() {
         driver.element().click(createPlayListPlusButton);
@@ -88,4 +98,9 @@ public class HomePage {
     }
 
 
+
+public HomePage clickOnPlayList(){
+        driver.element().click(playList);
+        return this;
+}
 }
