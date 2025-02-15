@@ -19,7 +19,7 @@ public class HomePage {
     By expandLibrary = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[6]");
     By expandTitle = By.xpath("//button[@aria-label=\"Expand Your Library\"]");
     By createNewPlayList = By.xpath("(//button[@class=\"mWj8N7D_OlsbDgtQx5GW\"])[1]");
-    By plusButton = By.xpath("//button[@aria-label=\"Create\"]");
+    By plusButton = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[7]");
     By playList = By.xpath("(//div[@class=\"Areas__HeaderSideArea-sc-8gfrea-1 ljvfQS\"])[3]");
 
 
