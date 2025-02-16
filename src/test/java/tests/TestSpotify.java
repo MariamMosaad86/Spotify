@@ -50,7 +50,7 @@ public class TestSpotify {
     }
 
     @Test(priority = 3, dependsOnMethods = "login")
-    public void addSongsToPlayListAndPlaylist(){
+    public void addSongsToPlayListAndPlayPlaylist(){
         new HomePage(driver)
                 .clickOnCreatePlayList()
                 .fillFieldSearchForASong()
