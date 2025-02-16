@@ -32,6 +32,8 @@ public class SignupPage {
     By womanRadioButton = By.xpath("(//span[@class=\"Indicator-sc-hjfusp-0 jRuGOG\"])[2]");
     By userDataNextButton = By.xpath("//button[@data-testid=\"submit\"]");
     By finalSignUpButton = By.xpath("//button[@data-encore-id=\"buttonPrimary\"]");
+    By firstCheckBox=By.xpath("(//span[@class=\"Indicator-sc-1airx73-0 lhZnAn\"])[1]");
+    By secondCheckBox = By.xpath("(//span[@class=\"Indicator-sc-1airx73-0 lhZnAn\"])[2]");
 
 
 
@@ -80,6 +82,7 @@ public class SignupPage {
     @Step("Check that user should enter password with one letter, 1 number or special character and 10 characters and in password filed")
     public SignupPage enterPasswordInPasswordField() {
         driver.element().fillField(passwordField, "test@spotify");
+        driver.element().isClickable(nextPasswordButton);
         clickOnPasswordNextButton();
         return this;
     }
@@ -105,14 +108,26 @@ public class SignupPage {
 
     @Step("Click on Next button")
     public SignupPage clickOnUserDataNextButton() {
+        driver.browser().scrollToBottom();
         driver.element().click(userDataNextButton);
         return this;
     }
 
+    public SignupPage clickOnFirstCheckBox(){
+        driver.element().click(firstCheckBox);
+        return this;
+    }
+
+    public SignupPage clickOnSecondCheckBox(){
+        driver.element().click(secondCheckBox);
+        return this;
+    }
     @Step("Click on Signup Button")
     public HomePage clickOnSignupButton() {
         driver.element().click(finalSignUpButton);
         return new HomePage(driver);
     }
+
+
 
 }

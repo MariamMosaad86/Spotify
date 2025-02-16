@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+
 public class HomePage {
     private Driver driver;
 
@@ -13,15 +14,15 @@ public class HomePage {
     By loginButton = By.xpath("//button[@data-testid=\"login-button\"]");
     By userWidgetLink = By.xpath("//button[@data-testid=\"user-widget-link\"]");
     By logoutButton = By.xpath("//button[@data-testid=\"user-widget-dropdown-logout\"]");
-    By createPlayListPlusButton = By.xpath("//button[@aria-label=\"Create playlist or folder\"]");
-    By createPlayList = By.xpath("(//button[@data-encore-id=\"buttonPrimary\"])[2]");
-    By searchFiled = By.xpath("//input[@data-testid=\"search-input\"]");
+    By searchFiled = By.xpath("//input[@aria-owns=\"recent-searches-dropdown\"]");
     By expandLibrary = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[6]");
     By expandTitle = By.xpath("//button[@aria-label=\"Expand Your Library\"]");
     By createNewPlayList = By.xpath("(//button[@class=\"mWj8N7D_OlsbDgtQx5GW\"])[1]");
     By plusButton = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[7]");
     By playList = By.xpath("(//div[@class=\"Areas__HeaderSideArea-sc-8gfrea-1 ljvfQS\"])[3]");
-
+    By mohamedSaadSong = By.xpath("//div[@aria-labelledby=\"card-title-spotify:playlist:37i9dQZF1DXd3AhRYJnfcl-1\"]");
+    By loginLink = By.xpath("(//button[@data-encore-id=\"buttonPrimary\"])[51]");
+    By createPlayList = By.xpath("(//button[@data-encore-id=\"buttonPrimary\"])[2]");
 
 
     public HomePage(Driver driver) {
@@ -78,29 +79,42 @@ public class HomePage {
     }
 
     @Step("Click on plus Button")
-    public HomePage clickOnPlusButton(){
-            driver.element().click(plusButton);
-            return this;
-        }
-
-
-    @Step("Click on Create PlayList")
-    public HomePage clickOnCreatePlayList() {
-        driver.element().click(createPlayListPlusButton);
-        driver.element().click(createNewPlayList);
+    public HomePage clickOnPlusButton() {
+        driver.element().click(plusButton);
         return this;
     }
 
+
     @Step("Search for singer")
-    public SearchPage searchForSinger() {
+    public SearchPage searchForASinger() {
         driver.element().fillField(searchFiled, "Amr Diab");
         return new SearchPage(driver);
     }
 
 
-
-public HomePage clickOnPlayList(){
+    public HomePage clickOnPlayList() {
         driver.element().click(playList);
         return this;
-}
+    }
+
+    public LoginPage clickOnLoginLink() {
+        driver.element().click(loginLink);
+        return new LoginPage(driver);
+    }
+
+
+    @Step("Click on Mohamed Saad Song")
+    public PlayList clickOnMohamedSaadSong() {
+        driver.element().click(mohamedSaadSong);
+        return new PlayList(driver);
+    }
+
+
+    public PlayList clickOnCreatePlayList() {
+        driver.element().isClickable(createPlayList);
+        driver.element().click(createPlayList);
+        return new PlayList(driver);
+
+    }
+
 }

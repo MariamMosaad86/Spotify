@@ -16,7 +16,8 @@ public class SearchPage {
     By addToMyPlayList = By.xpath("(//button[@role=\"menuitem\"])[3]");
     By selectASong = By.xpath("//a[@href=\"/track/6TYFcqqQVQPb3YsgfRhvqs\"]");
     By searchButton = By.xpath("//div[@class=\"IconContainer-sc-1oa4n9m-0 dXCfis\"]");
-
+    By userWidgetLink = By.xpath("//button[@data-testid=\"user-widget-link\"]");
+    By logoutButton = By.xpath("//button[@data-testid=\"user-widget-dropdown-logout\"]");
 
     public SearchPage(Driver driver) {
         this.driver = driver;
@@ -56,14 +57,31 @@ public class SearchPage {
         driver.element().click(addToPlayList);
         return this;
     }
+
     @Step("Click on Add To MyPlaylist")
-public SearchPage clickOnAddToMyPlayList(){
+    public SearchPage clickOnAddToMyPlayList() {
         driver.element().click(addToMyPlayList);
         return this;
     }
+
     @Step("Click on Search Button")
     public SearchPage clickOnSearchButton() {
         driver.element().click(searchButton);
         return this;
     }
+
+    @Step("Click on user widget")
+    public SearchPage clickOnUserWidget() {
+        driver.element().click(userWidgetLink);
+        return this;
+    }
+
+    @Step("Click on logout button")
+    public HomePage clickOnLogoutButton() {
+        driver.element().click(logoutButton);
+        return new HomePage(driver);
+    }
+
+
+
 }

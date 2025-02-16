@@ -14,7 +14,6 @@ public class TestSpotify {
     @BeforeClass
     public void setUp() {
         driver = new Driver();
-
     }
 
 
@@ -29,14 +28,19 @@ public class TestSpotify {
                 .enterPasswordInPasswordField()
                 .fillUserForm()
                 .clickOnUserDataNextButton()
+                .clickOnFirstCheckBox()
+                .clickOnSecondCheckBox()
                 .clickOnSignupButton()
-                .checkThatTheUserCanOpenUserWidget()
-                .checkThatTheUserCanLogout();
+                .searchForASinger()
+                .clickOnSearchButton()
+                .clickOnUserWidget()
+                .clickOnLogoutButton();
 
     }
 
-    @Test(priority = 2, dependsOnMethods = "signup")
+        @Test(priority = 2, dependsOnMethods = "signup")
     public void login() {
+        driver.browser().navigateToURL("https://open.spotify.com/");
         new HomePage(driver)
                 .checkLoginLinkIsExistOnTheHomePage()
                 .checkThatTheUseCanNavigateToLoginPage()
@@ -46,19 +50,17 @@ public class TestSpotify {
     }
 
     @Test(priority = 3, dependsOnMethods = "login")
-    public void createPlayList() {
-            new HomePage(driver)
-                    .clickOnPlusButton()
-                    .clickOnPlayList()
-                    .searchForSinger()
-                    .clickOnSearchButton()
-                    .clickOnThreeDots()
-                    .clickOnAddToPlayList()
-                    .clickOnAddToMyPlayList();
+    public void addSongsToPlayListAndPlaylist(){
+        new HomePage(driver)
+                .clickOnCreatePlayList()
+                .fillFieldSearchForASong()
+                .clickOnTamallyMaakAddButton()
+                .clickOnWayahAddButton()
+                .clickOnPlayMyPlaylist();
     }
 
 
-    @AfterClass
+//    @AfterClass
     public void tearDown() {
         driver.browser().deleteAllCookies();
         driver.quit();
