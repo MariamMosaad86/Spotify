@@ -59,8 +59,7 @@ public class TestSpotify {
                 .clickOnPlayMyPlaylist();
     }
 
-
-//    @AfterClass
+    @AfterClass
     public void tearDown() {
         driver.browser().deleteAllCookies();
         driver.quit();

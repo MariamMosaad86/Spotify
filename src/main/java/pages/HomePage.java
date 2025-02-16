@@ -9,19 +9,13 @@ import org.testng.Assert;
 public class HomePage {
     private Driver driver;
 
-    //    By signUpButton = By.xpath("(//button[@data-encore-id=\"buttonPrimary\"])[3]");
+
     By signUpButton = By.xpath("//button[@data-testid=\"signup-button\"]");
     By loginButton = By.xpath("//button[@data-testid=\"login-button\"]");
     By userWidgetLink = By.xpath("//button[@data-testid=\"user-widget-link\"]");
     By logoutButton = By.xpath("//button[@data-testid=\"user-widget-dropdown-logout\"]");
     By searchFiled = By.xpath("//input[@aria-owns=\"recent-searches-dropdown\"]");
-    By expandLibrary = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[6]");
-    By expandTitle = By.xpath("//button[@aria-label=\"Expand Your Library\"]");
-    By createNewPlayList = By.xpath("(//button[@class=\"mWj8N7D_OlsbDgtQx5GW\"])[1]");
     By plusButton = By.xpath("(//button[@data-encore-id=\"buttonTertiary\"])[7]");
-    By playList = By.xpath("(//div[@class=\"Areas__HeaderSideArea-sc-8gfrea-1 ljvfQS\"])[3]");
-    By mohamedSaadSong = By.xpath("//div[@aria-labelledby=\"card-title-spotify:playlist:37i9dQZF1DXd3AhRYJnfcl-1\"]");
-    By loginLink = By.xpath("(//button[@data-encore-id=\"buttonPrimary\"])[51]");
     By createPlayList = By.xpath("(//button[@data-encore-id=\"buttonPrimary\"])[2]");
 
 
@@ -92,24 +86,7 @@ public class HomePage {
     }
 
 
-    public HomePage clickOnPlayList() {
-        driver.element().click(playList);
-        return this;
-    }
-
-    public LoginPage clickOnLoginLink() {
-        driver.element().click(loginLink);
-        return new LoginPage(driver);
-    }
-
-
-    @Step("Click on Mohamed Saad Song")
-    public PlayList clickOnMohamedSaadSong() {
-        driver.element().click(mohamedSaadSong);
-        return new PlayList(driver);
-    }
-
-
+    @Step("Click on create playlist")
     public PlayList clickOnCreatePlayList() {
         driver.element().isClickable(createPlayList);
         driver.element().click(createPlayList);

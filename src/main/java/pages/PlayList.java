@@ -54,24 +54,28 @@ public class PlayList {
         return this;
     }
 
+    @Step("Check that user can fill Search filed")
     public PlayList fillFieldSearchForASong() {
         driver.browser().scrollToBottom();
         driver.element().fillField(searchForASongField, "Tamally Maak");
         return this;
     }
 
+    @Step("Click on Add Tamally Maak song button")
     public PlayList clickOnTamallyMaakAddButton() {
         driver.element().isDisplayed(addTamallyMaakButton);
         driver.element().click(addTamallyMaakButton);
         return this;
     }
 
+    @Step("Click on Add Wayah song button")
     public PlayList clickOnWayahAddButton() {
         driver.element().isDisplayed(addWayahButton);
         driver.element().click(addWayahButton);
         return this;
     }
 
+    @Step("Click on play MyPlaylist")
     public PlayList clickOnPlayMyPlaylist() {
         driver.element().hoverOnItem(playMyPlaylist);
 //        driver.element().isDisplayed(playMyPlaylist);

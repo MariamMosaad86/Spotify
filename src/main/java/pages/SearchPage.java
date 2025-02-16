@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 public class SearchPage {
     private Driver driver;
 
-    //    By addToPlayList = By.xpath("(//div[@class=\"lQEXaOyKiOHRJAkTf1EF\"])[1]");
     By addNewPlayList = By.xpath("(//button[@)[role=\"menuitem\"]2]");
     By selectThreeDots = By.xpath("(//button[@data-testid=\"more-button\"])[3]");
     By playASong = By.xpath("(//div/li[@role=\"listitem\"])[2]");

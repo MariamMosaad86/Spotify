@@ -4,9 +4,6 @@ import com.github.javafaker.Faker;
 import driverFactory.Driver;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -14,10 +11,9 @@ import org.testng.ITestContext;
 import java.time.Duration;
 
 public class SignupPage {
+
     private Driver driver;
-    WebDriverWait wait;
-    private static final Faker faker = new Faker();
-//    String fakerEmail;
+
 
 
     By sigUpButton = By.xpath("//footer/a[@data-encore-id=\"buttonPrimary\"]");
@@ -66,7 +62,6 @@ public class SignupPage {
     @Step("Check that the user should enter new email not exist in the database to signup")
     public SignupPage enterNewEmailInEmailField() {
 
-//        fakerEmail = faker.internet().safeEmailAddress();
         driver.element().fillField(emailField, TestData.FAKE_EMAIL);
         clickOnEmailNextButton();
         return this;
@@ -113,11 +108,13 @@ public class SignupPage {
         return this;
     }
 
+    @Step("Select first checkbox")
     public SignupPage clickOnFirstCheckBox(){
         driver.element().click(firstCheckBox);
         return this;
     }
 
+    @Step("Select second checkbox")
     public SignupPage clickOnSecondCheckBox(){
         driver.element().click(secondCheckBox);
         return this;
