@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-public class TestSpotify {
+public class SpotifyTest {
     public Driver driver;
 
 
@@ -38,7 +38,7 @@ public class TestSpotify {
 
     }
 
-        @Test(priority = 2, dependsOnMethods = "signup")
+    @Test(priority = 2, dependsOnMethods = "signup")
     public void login() {
         driver.browser().navigateToURL("https://open.spotify.com/");
         new HomePage(driver)
@@ -50,7 +50,7 @@ public class TestSpotify {
     }
 
     @Test(priority = 3, dependsOnMethods = "login")
-    public void addSongsToPlayListAndPlayPlaylist(){
+    public void addSongsToPlayListAndPlayPlaylist() {
         new HomePage(driver)
                 .clickOnCreatePlayList()
                 .fillFieldSearchForASong()

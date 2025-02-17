@@ -74,15 +74,6 @@ public class TestNGListener implements ITestListener, IExecutionListener ,IAlter
         assert driver != null;
         ScreenShotManager.CaptureScreenShot(driver.get(), result.getName());
 
-//      try {
-//        driver=(Driver) result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance()), result.getName();
-//    } catch (IllegalAccessException e) {
-//                throw new RuntimeException(e);
-//            } catch (NoSuchFieldException e) {
-//                throw new RuntimeException(e);
-//            }
-//        ScreenShotManager.captureScreenshot(driver.get(), result.getName());
-
         System.out.println("*********  Failure of Test: " + result.getName() + " *************");
 
     }
