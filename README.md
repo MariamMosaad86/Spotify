@@ -46,7 +46,7 @@ You can also run individual test cases by specifying the test case file.
 This project follows a structured layout for better modularity and clarity:
 
 ```
-DEPL_FINAL
+Spotify
 │
 ├── main
 │   └── java
